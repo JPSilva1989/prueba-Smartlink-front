@@ -63,7 +63,7 @@ button {
     margin-top: 1rem;
     font-size: 0.875rem;
     padding: 1rem;
-    background-color: black;
+    background-color: #000000;
     color: white;
     cursor: pointer;
     border: none;
@@ -75,7 +75,7 @@ button:hover {
 }
 
 .cupon {
-    background-color: rgb(75 85 99);
+    background-color: #4b5563;
 }
 
 .cupon:hover {

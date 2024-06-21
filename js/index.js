@@ -53,7 +53,16 @@ window.addEventListener('load', () => {
 
         if(!error) {
             agregarEmail(form.elements[0].value)
-            console.log("mail ingresado con exito")
+            Swal.fire({
+                title: "Mail ingresado con éxito",
+                icon: "success",
+                iconColor: "#4b5563",
+                iconAnimation: true,
+                showConfirmButton: false,
+                showCloseButton: true,
+                timer: 2000,
+                timerProgressBar: true
+              });
         }
     })
 })
