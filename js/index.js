@@ -10,7 +10,7 @@ const agregarEmail = async (data) => {
         headers: {
         'Content-Type': 'application/json',
         },
-        mode: "no-cors",
+       /*  mode: "no-cors", */
         body: JSON.stringify(email),
         };
         console.log(email)
