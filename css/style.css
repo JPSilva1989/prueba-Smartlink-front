@@ -86,3 +86,13 @@ span {
     color: red;
     font-style: italic;
 }
+
+.icon {
+    order: 1;
+}
+
+.title {
+    order: 2;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1.5rem;
+}

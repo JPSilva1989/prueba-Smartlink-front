@@ -49,20 +49,29 @@ window.addEventListener('load', () => {
         if(!emailRegex.test($('email').value)){
             error = true
             $('error').innerText = "Debes ingresar un email válido"
+            $("form").elements[0].value = ""
         }
 
         if(!error) {
             agregarEmail(form.elements[0].value)
             Swal.fire({
-                title: "Mail ingresado con éxito",
+                title: form.elements[0].value + "<br/>ingresado con éxito",
+                imageUrl: "img/naum-logo.svg",
+                imageWidth: 150,
+                imageHeight: 50,
+                imageAlt: "Custom image",
                 icon: "success",
                 iconColor: "#4b5563",
-                iconAnimation: true,
                 showConfirmButton: false,
                 showCloseButton: true,
-                timer: 2000,
-                timerProgressBar: true
+                timer: 2500,
+                timerProgressBar: true,
+                customClass: {
+                    icon: 'icon',
+                    title: "title"
+                  }
               });
+            $("form").elements[0].value = ""
         }
     })
 })
