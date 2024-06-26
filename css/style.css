@@ -25,7 +25,7 @@ body {
 img {
     width: 150px;
     height: 48px;
-    margin: 0 auto;
+    margin: 35px auto;
 }
 
 p {
@@ -34,7 +34,7 @@ p {
     font-weight: 500;
     line-height: 1rem;
     max-width: 95%;
-    margin: 35px auto 20px;
+    margin: 0 auto 20px;
 }
 
 form {
