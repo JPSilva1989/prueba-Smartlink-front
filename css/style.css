@@ -68,6 +68,7 @@ button {
     cursor: pointer;
     border: none;
     border-radius: 0.4rem;
+    transition: all .4s;
 }
 
 button:hover {
