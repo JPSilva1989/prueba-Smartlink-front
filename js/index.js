@@ -59,7 +59,7 @@ window.addEventListener('load', () => {
                 imageUrl: "img/naum-logo.svg",
                 imageWidth: 150,
                 imageHeight: 50,
-                imageAlt: "Custom image",
+                imageAlt: "Logo Naum",
                 icon: "success",
                 iconColor: "#4b5563",
                 showConfirmButton: false,
