@@ -1,10 +1,10 @@
 const $ = id => document.getElementById(id);
 const emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
-const agregarEmail = async (data) => {
+const agregarEmail = async (email, client) => {
     const email = {
-        email: data,
-        client: "naum"
+        email: email,
+        client: client
     }
     console.log(email)
     const options = {
@@ -55,7 +55,7 @@ window.addEventListener('load', () => {
         }
 
         if(!error) {
-            agregarEmail(form.elements[0].value)
+            agregarEmail(form.elements[0].value, "naum")
             Swal.fire({
                 title: form.elements[0].value + "<br/>ingresado con éxito",
                 imageUrl: "img/naum-logo.svg",
