@@ -1,9 +1,9 @@
 const $ = id => document.getElementById(id);
 const emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
-const agregarEmail = async (email, client) => {
+const agregarEmail = async (data, client) => {
     const email = {
-        email: email,
+        email: data,
         client: client
     }
     console.log(email)
