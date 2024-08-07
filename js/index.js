@@ -5,6 +5,7 @@ const agregarEmail = async (data) => {
     const email = {
         email: data
     }
+    console.log(email)
     const options = {
         method: 'POST',
         headers: {
