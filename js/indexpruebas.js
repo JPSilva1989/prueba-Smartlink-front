@@ -16,16 +16,27 @@ const agregarEmail = async (email, client) => {
         body: JSON.stringify(item),
         };
         fetch('https://rp5k32sr29.execute-api.sa-east-1.amazonaws.com/', options)
-        .then(data => {
-            if(!data.ok) {
-                throw Error(data.status)
+        .then(response => {
+            // Verifica si la respuesta tiene contenido
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-            return data.json()
-        }).then(email => {
-            console.log(email)
-        }).catch(e => {
-            console.log(e);
+    
+            return response.text().then(text => {
+                return text ? JSON.parse(text) : {}; // Si el cuerpo está vacío, retorna un objeto vacío
             });
+        })
+        .then(data => {
+            if (data.mensaje && data.mensaje.includes('ya existe')) {
+                alert('El registro ya existe y no se guardó de nuevo');
+            } else {
+                alert('Registro guardado exitosamente');
+            }
+        })
+        .catch(error => {
+            console.error('Error al realizar la solicitud:', error);
+            alert('Error al comunicarse con el servidor');
+        });
 }
 
 window.addEventListener('load', () => {
