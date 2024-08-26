@@ -12,20 +12,47 @@ const agregarEmail = async (email, client) => {
         headers: {
         'Content-Type': 'application/json',
         },
-        mode: "no-cors",
         body: JSON.stringify(item),
         };
-        fetch('https://rp5k32sr29.execute-api.sa-east-1.amazonaws.com/', options)
-        .then(data => {
-            if(!data.ok) {
-                throw Error(data.status)
+        fetch('https://onyuya51yb.execute-api.sa-east-1.amazonaws.com', options)
+        .then(response => {
+            // Verifica si la respuesta tiene contenido
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-            return data.json()
-        }).then(email => {
-            console.log(email)
-        }).catch(e => {
-            console.log(e);
+    
+            return response.text().then(text => {
+                return text ? JSON.parse(text) : {}; // Si el cuerpo está vacío, retorna un objeto vacío
             });
+        })
+        .then(data => {
+            if (data.mensaje && data.mensaje.includes('ya existe')) {
+                setTimeout(() => {
+                    $('error').innerText = "El email ya está registrado"
+                }, 1500);
+            } else {
+                Swal.fire({
+                    title: email + "<br/>ingresado con éxito",
+                    imageUrl: "img/naum-logo.svg",
+                    imageWidth: 150,
+                    imageHeight: 50,
+                    imageAlt: "Logo Naum",
+                    icon: "success",
+                    iconColor: "#4b5563",
+                    showConfirmButton: false,
+                    showCloseButton: true,
+                    timer: 2500,
+                    timerProgressBar: true,
+                    customClass: {
+                        icon: 'icon',
+                        title: "title"
+                      }
+                  });
+            }
+        })
+        .catch(error => {
+            console.error('Error al realizar la solicitud:', error);
+        });
 }
 
 window.addEventListener('load', () => {
@@ -55,24 +82,16 @@ window.addEventListener('load', () => {
 
         if(!error) {
             agregarEmail(form.elements[0].value, "naum")
-            Swal.fire({
-                title: form.elements[0].value + "<br/>ingresado con éxito",
-                imageUrl: "img/naum-logo.svg",
-                imageWidth: 150,
-                imageHeight: 50,
-                imageAlt: "Logo Naum",
-                icon: "success",
-                iconColor: "#4b5563",
-                showConfirmButton: false,
-                showCloseButton: true,
-                timer: 2500,
-                timerProgressBar: true,
-                customClass: {
-                    icon: 'icon',
-                    title: "title"
-                  }
-              });
-            $("form").elements[0].value = ""
+            $("buttontxt").style = "display: none"
+            $("loader").style = "display: block"
+            $("enviarForm").disabled = true
+            setTimeout(function() {
+                $("form").elements[0].value = ""
+                $("enviarForm").disabled = false
+                $("buttontxt").style = "display: block"
+                $("loader").style = "display: none"
+            }, 2600);
+            
         }
     })
 })

@@ -75,6 +75,20 @@ button:hover {
     background-color: rgb(79 70 229);
 }
 
+.bx-loader-alt {
+    display: none;
+    animation: rotate 1s ease infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .cupon {
     background-color: #4b5563;
 }
@@ -83,7 +97,7 @@ button:hover {
     background-color: rgb(31 41 55);
 }
 
-span {
+.error {
     color: red;
     font-style: italic;
 }

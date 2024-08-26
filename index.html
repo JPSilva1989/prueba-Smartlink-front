@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.0/dist/sweetalert2.min.css
 " rel="stylesheet">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <link rel="stylesheet" href="css/style.css">
     <title>Smartlink</title>
 </head>
@@ -16,8 +18,8 @@
                
         <form action="" method="post" id="form">
             <input type="text" name="email" id="email" placeholder="Email">
-            <span id="error"></span>
-            <button type="submit" id="enviarForm" class="cupon">Recibir cupón</button>
+            <span class="error" id="error"></span>
+            <button type="submit" id="enviarForm" class="cupon"><span class="buttontxt" id="buttontxt">Recibir cupón</span><i class='bx bx-loader-alt' id="loader"></i></button>
         </form>
     
         <a href="https://naum-oficial.com/coleccion/?utm_source=EcommerceLabLink_Instagram&utm_medium=EcommerceLabLink_Instagram&utm_campaign=EcommerceLabLink_Instagram&utm_content=EcommerceLabLink_Instagram&utm_term=EcommerceLabLink_Instagram" target="_blank"><button>Nueva Colección</button></a>
@@ -28,6 +30,6 @@
       
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.0/dist/sweetalert2.all.min.js"></script>
-    <script src="js/indexpruebas.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
